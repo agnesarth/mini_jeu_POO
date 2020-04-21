@@ -31,18 +31,20 @@ villains << villain2
 sleep(2)
 puts "On ne les présente plus, nos Bonnie & Clyde entrent à leur tour dans l'arène : José et Josianne !!"
 sleep(2)
+# La boucle while lance la phase de combat
 while (villain1.life_points > 0 || villain2.life_points > 0) && player1.life_points > 0
   puts " "
   puts "Voici l'état de ton joueur :"
   print player1.show_state
   sleep (3)
   puts " "
-  
+  # laisse au joueur le choix de l'action à effectuer à chacun de ses tours
   puts "Quelle action veux-tu effectuer ?"
   puts "a - chercher une meilleure arme"
   puts "s - chercher à se soigner"
   puts " "
   puts "Attaquer un joueur en vue :"
+  # la condition ici sert à afficher dans le menu l'ennemi qui est encore en vie
   if villain1.life_points > 0
     print "0 - "
     print "#{villain1.show_state}"
@@ -54,6 +56,7 @@ while (villain1.life_points > 0 || villain2.life_points > 0) && player1.life_poi
   print ">"
   action = gets.chomp
   sleep(3)
+  # selon l'action choisie par le joueur (cf. le fichier player : arme, soin, attaque ennemi 1 ou 2)
   if action == "a"
     player1.search_weapon
   elsif action == "s"
@@ -67,6 +70,7 @@ while (villain1.life_points > 0 || villain2.life_points > 0) && player1.life_poi
   end
 sleep(3)
 puts " "
+# les ennemis attaquent à leur tour
   if villain1.life_points > 0 || villain2.life_points > 0
     puts "Attention on t'attaque !"
   end
@@ -78,7 +82,7 @@ sleep(1)
     end
   end
 end
-
+# Le joueur ou les ennemis sont K.O. ; on sort de la boucle while
 puts "La partie est finie"
 if player1.life_points > 0
   puts "Youhou ! Tu as battu José et Josianne !"
