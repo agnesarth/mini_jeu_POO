@@ -22,4 +22,4 @@ player1.attacks(player2)
   end
 end
 
-#binding.pry
+binding.pry
