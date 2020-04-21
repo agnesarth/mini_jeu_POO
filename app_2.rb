@@ -31,6 +31,7 @@ villains << villain2
 sleep(2)
 puts "On ne les présente plus, nos Bonnie & Clyde entrent à leur tour dans l'arène : José et Josianne !!"
 sleep(2)
+
 # La boucle while lance la phase de combat
 while (villain1.life_points > 0 || villain2.life_points > 0) && player1.life_points > 0
   puts " "
@@ -68,13 +69,13 @@ while (villain1.life_points > 0 || villain2.life_points > 0) && player1.life_poi
   else
     puts "T'es mauvais Jack, on saute ton tour"  
   end
-sleep(3)
-puts " "
-# les ennemis attaquent à leur tour
+  sleep(3)
+  puts " "
+  # les ennemis attaquent à leur tour
   if villain1.life_points > 0 || villain2.life_points > 0
     puts "Attention on t'attaque !"
   end
-sleep(1)
+  sleep(1)
   villains.each do |a|
     if a.life_points > 0
       a.attacks(player1)
@@ -82,6 +83,7 @@ sleep(1)
     end
   end
 end
+
 # Le joueur ou les ennemis sont K.O. ; on sort de la boucle while
 puts "La partie est finie"
 if player1.life_points > 0
